@@ -24,7 +24,6 @@ const elderDiscount = 37.893;
 // Il recap dei dati e l'output del prezzo finale, andranno quindi stampati in pagina (il prezzo dovrà essere formattato con massimo due decimali, per indicare i centesimi sul prezzo).
 
 const pricePerKm = 0.267113;
-let fullPrice;
 
 submitButton = document.querySelector ("div.form>button");
 
@@ -34,7 +33,7 @@ submitButton.addEventListener("click", function(){
     travelDistance = Number.parseFloat(document.querySelector ("input#travel-distance").value);
     userAge = Number.parseInt(document.querySelector ("input#user-age").value);
 
-    fullPrice = pricePerKm * travelDistance;
+    const fullPrice = pricePerKm * travelDistance;
     let discount;
     
     if (userAge < minorAge) {
@@ -46,7 +45,9 @@ submitButton.addEventListener("click", function(){
     }
 
     const ticketPrice = fullPrice - discount
-    document.querySelector ("h3#ticket-price").innerHTML = ticketPrice.toFixed(2) + " €" 
+    document.querySelector ("span.ticket-price").innerHTML = ticketPrice.toFixed(2); 
+    document.querySelector ("span.discount-percentage").innerHTML = fullPrice.toFixed(2); 
+    document.querySelector ("span.discount-number").innerHTML = discount.toFixed(2); 
 
 
     console.log (travelDistance, userAge);
