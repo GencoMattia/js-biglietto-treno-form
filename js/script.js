@@ -45,8 +45,10 @@ submitButton.addEventListener("click", function(){
         discount = 0;
     }
 
-    ticketPrice = fullPrice - discount
-    
+    const ticketPrice = fullPrice - discount
+    document.querySelector ("h2#ticket-price").innerHTML = ticketPrice.toFixed(2) + " €" 
+
+
     console.log (travelDistance, userAge);
     console.log (ticketPrice)
 })
